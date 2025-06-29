@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>school website</title>
+    <style>
+    
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            transition: background-color 0.3s;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .header h1 {
+            font-size: 40px;
+        }
+
+        .menu-button {
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            right: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 32px;
+            text-decoration: none;
+            font-size: 22px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #fccb06;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 36px;
+            color: white;
+        }
+
+        @media screen and (max-width: 600px) {
+            .header h1 {
+                font-size: 16px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+                padding: 10px 20px;
+            }
+        }
+        .slideshow-container{
+            max-width: 600px;
+            position: relative;
+            margin: auto;
+        }
+        .mySlides {
+            display: none;
+        }
+        .prev, .next{
+            cursor: pointer;
+            position: absolute;
+            top: 50px;
+            width: auto;
+            margin-top: 22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next{
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover{
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .dots-container{
+            text-align: center;
+            padding: 10px 0;
+            background: transparent;
+            position: relative;
+        }
+        .dot{
+            cursor: pointer;
+            height: 12px;
+            width: 12px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+
+        }
+        .active, .dot:hover{
+            background-color: #717171;
+        }
+        .fade{
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1;}
+        }
+        img{
+            width: 300px;
+            height: 450px;
+            object-fit: cover;
+    
+        }
+        @media  screen and (max-width:600px) {
+            .dot{
+                height: 10px;
+                width: 10px;
+                margin: 0 3px;
+            }
+            
+        }
+        .small-note{
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: white;
+
+        }
+        .small-note h1{
+            font-size: 50px;
+            color: black;
+            font-family: cursive;
+            text-align: center;
+        }
+        .small-note p{
+            font-size: 30px;
+            color: black;
+        }
+        .Goal-school{
+            width: 100%;
+            display: flex;
+            background-color: black;
+
+        }
+        .Goal-school h1{
+            color: white;
+            font-size: 50px;
+            font-family: cursive;
+            font-weight: 200;
+        }
+        .Goal-school p{
+            color: white;
+            font-size: 40px;
+        }
+        .goal-image{
+            width: 450px;
+        }
+        .school-vision{
+            display: block;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            background-color: white;
+        }
+        .vision-leftside h1{
+            color: black;
+            text-align: center;
+            font-size: 60px;
+            font-family: cursive;
+        }
+        .vision-leftside p{
+            color: black;
+            font-size: 30px;
+        }
+        .vision-image{
+            width:100%;
+            display: flex;
+            padding: 10px;
+            margin: 10px;
+        }
+        .contact{
+            display: block;
+            justify-items: center;
+            text-align: center;
+            color: white;
+            background-color: black;
+        }
+        .contact-us h1{
+            font-size: 50px;
+        }
+        .contact-us p{
+            font-size: 30px;
+        }
+        .our-address h1{
+            font-size: 50px;
+        }
+        .our-address p{
+            font-size: 30px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>THE LEADERS ACADEMY</h1>
+        <button class="menu-button" onclick="openNav()">&#9776;</button>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Home</a>
+        <a href="#">Student Login</a>
+        <a href="#">QR</a>
+        <a href="#">Academics</a>
+        <a href="#">Our School</a>
+        <a href="#">School Vision</a>
+        <a href="#">Contact</a>
+    </div>
+    <div class="slidershow-container">
+        <div class="mySlides fade">
+            <img src="schoolthings\kid4.jpeg" alt="school kids" style="width: 100%;">
+        </div>
+        <div class="mySlides fade">
+            <img src="schoolthings\kids.jpeg" alt="School kids" style="width:100%;">
+        </div>
+        <div class="mySlides fade">
+            <img src="schoolthings\schoolteens.jpeg" alt="school teens" style="width: 100%;">
+        </div>
+        <div class="mySlides fade">
+            <img src="schoolthings\school6.jpeg" alt="school children" style="width: 100%;">
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <div class="dots-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </div>
+    <div class="small-note">
+        <h1>OUR FOCUS</h1>
+        <p>
+            At The Leaders Academy our focus is single. The pupils and the students.
+            We are focused on giving continous knowledge, producing excellence in all we do,
+            training and educating the students and the pupils on how to be the best and how to
+            keep soaring high.
+        </p>
+    </div>
+    <div class="Goal-school">
+        <div class="goal-leftside">
+            <h1>GOAL</h1>
+            <p>our goal is to train the mind to be able to think deeply,see problems
+            learn to solve these problems, therefore aiding and bringing change
+            and development to the society.
+            </p>
+        </div>
+        <div class="goal-image">
+            <img src="schoolthings\schoo1.jpeg">
+        </div>
+    </div>
+    <div class="school-vision">
+        <div class="vision-leftside">
+            <h1>VISION</h1>
+            <p>Our vision is to impact knowledge,raise and nurture global leaders.
+            </p>
+        </div>
+        <div class="vision-image">
+            <img src="schoolthings\schoolkid4.jpeg">
+            <img src="schoolthings\school2.jpeg">
+            <img src="schoolthings\school6.jpeg">
+            <img src="schoolthings\schoolkid5.jpeg">
+        </div>
+    </div>
+    <div class="contact">
+        <div class="contact-us">
+            <h1>Contact us</h1>
+            <p>Tel:0913456765/08073412578</p>
+            <p>Whatsapp:+2349032145678</p>
+            <p>G-mail:leaderschools98@gmail.com</p>
+        </div>
+        <div class="our-address">
+            <h1>Address</h1>
+            <p>Kenli branch: Rellia,opposite zuma supermarket,juna 190422</p>
+            <p>Sarrey branch:Along Sarrey airport, beside WAER farms </p>
+        </div>
+    </div>
+    
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.body.style.backgroundColor = "#837A75";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.body.style.backgroundColor = "#352208";
+        }
+
+        let slideIndex= 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i] .style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 3000);
+    }
+    </script>
+</body>
+</html>
